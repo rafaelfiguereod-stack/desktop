@@ -86,10 +86,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --ignore-scripts --frozen-lockfile
 
-      # @types/node is absent from this package's lockfile; it is normally
-      # provided by the root workspace. Install it ephemerally so tsc succeeds.
+      # @types/node and tslib are absent from this package's lockfile; both are
+      # normally provided by the root workspace. Install ephemerally so tsc
+      # succeeds (tsconfig has importHelpers:true which requires tslib at build).
       - name: Install missing type definitions
-        run: npm install --no-save @types/node@22
+        run: npm install --no-save @types/node@22 tslib
 
       - name: Compile TypeScript
         # 'build' script is pure tsc; native tests require setup-ci-environment
