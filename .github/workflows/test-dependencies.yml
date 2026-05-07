@@ -86,6 +86,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --ignore-scripts --frozen-lockfile
 
+      # @types/node is absent from this package's lockfile; it is normally
+      # provided by the root workspace. Install it ephemerally so tsc succeeds.
+      - name: Install missing type definitions
+        run: npm install --no-save @types/node@22
+
       - name: Compile TypeScript
         # 'build' script is pure tsc; native tests require setup-ci-environment
         run: yarn build
@@ -153,6 +158,11 @@ jobs:
       # --ignore-scripts skips node-gyp rebuild (native N-API addon)
       - name: Install dependencies
         run: yarn install --ignore-scripts --frozen-lockfile
+
+      # @types/node is absent from this package's lockfile (provided by root
+      # workspace in normal CI); install ephemerally so tsc can compile
+      - name: Install missing type definitions
+        run: npm install --no-save @types/node@22
 
       - name: Build
         run: yarn build
