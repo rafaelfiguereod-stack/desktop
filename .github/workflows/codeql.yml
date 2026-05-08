@@ -10,11 +10,19 @@ on:
 
 jobs:
   CodeQL-Build:
-    # CodeQL runs on ubuntu-latest, windows-latest, and macos-latest
-    runs-on: ubuntu-latest
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
 
     permissions:
       security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: javascript-typescript
+            build-mode: none
+          - language: swift
+            build-mode: none
 
     steps:
       - name: Checkout repository
@@ -24,26 +32,15 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
+          language: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
           config-file: ./.github/codeql/codeql-config.yml
 
-        # Override language selection by uncommenting this and choosing your languages
-        # with:
-        #   languages: go, javascript, csharp, python, cpp, java
-      # Autobuild attempts to build any compiled languages (C/C++, C#, or Java).
-      # If this step fails, then you should remove it and run the build manually (see below).
-      - name: Autobuild
+      - if: matrix.build-mode == 'autobuild'
+        name: Autobuild
         uses: github/codeql-action/autobuild@v3
-
-      # ℹ️ Command-line programs to run using the OS shell.
-      # 📚 https://git.io/JvXDl
-
-      # ✏️ If the Autobuild fails above, remove it and uncomment the following
-      #    three lines and modify them (or add more) to build your code if your
-      #    project uses a compiled language
-
-      #- run: |
-      #     make bootstrap
-      #     make release
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
+        with:
+          category: '/language:${{ matrix.language }}'
