@@ -1,0 +1,211 @@
+name: Dependency Validation
+
+on:
+  push:
+    branches: [development]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dependency-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 24.11.1
+
+jobs:
+  # ── Critical: must not have continue-on-error ─────────────────────────────
+  root-tests:
+    name: Root Package Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+      - name: Validate Node engine requirement
+        run: node -p "require('./package.json').engines"
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Lint
+        # yarn test:script requires setup-ci-environment (native tools); lint does not
+        run: yarn lint
+
+      - name: Compatibility scan
+        run: |
+          echo "## Root Dependency Compatibility" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Package | Found | Status |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          for pkg in uuid axios astro vite @clerk/clerk-js tmp; do
+            if node -e "require('./package.json').dependencies['$pkg'] || require('./package.json').devDependencies['$pkg'] || process.exit(1)" 2>/dev/null; then
+              echo "| $pkg | yes | check manually |" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "| $pkg | no | not applicable |" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+      - name: Write step summary
+        if: always()
+        run: |
+          echo "## Root Package" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Field | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| engines.node | $(node -p "require('./package.json').engines.node") |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| node | $(node --version) |" >> "$GITHUB_STEP_SUMMARY"
+
+  # Closest analog to a CLI tool: vendor/desktop-trampoline (has binary + tests)
+  cli-tool-tests:
+    name: CLI Tool Tests (desktop-trampoline)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: vendor/desktop-trampoline
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Validate Node engine requirement
+        run: node -p "require('./package.json').engines || 'none specified'"
+
+      # --ignore-scripts skips node-gyp rebuild (native N-API addon requires
+      # Electron headers not available on plain ubuntu-latest)
+      - name: Install dependencies
+        run: yarn install --ignore-scripts --frozen-lockfile
+
+      # @types/node and tslib are absent from this package's lockfile; both are
+      # normally provided by the root workspace. Install ephemerally so tsc
+      # succeeds (tsconfig has importHelpers:true which requires tslib at build).
+      - name: Install missing type definitions
+        run: npm install --no-save @types/node@22 tslib
+
+      - name: Compile TypeScript
+        # 'build' script is pure tsc; native tests require setup-ci-environment
+        run: yarn build
+
+      - name: Write step summary
+        if: always()
+        run: |
+          echo "## CLI Tool (desktop-trampoline)" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Field | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| node | $(node --version) |" >> "$GITHUB_STEP_SUMMARY"
+
+  # ── Optional: audit warnings do not block merge ───────────────────────────
+  # printenvz is the only workspace member that uses npm (has package-lock.json)
+  printenvz-audit:
+    name: Security Audit (printenvz / npm)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: vendor/printenvz
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: vendor/printenvz/package-lock.json
+
+      - name: Validate Node engine requirement
+        run: node -p "require('./package.json').engines || 'none specified'"
+
+      # npm ci MUST come before npm audit
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Security audit
+        run: npm audit
+        continue-on-error: true
+
+      - name: Write step summary
+        if: always()
+        run: |
+          echo "## printenvz Security Audit" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Field | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| node | $(node --version) |" >> "$GITHUB_STEP_SUMMARY"
+
+  # ── Integration / preview: optional, non-blocking ─────────────────────────
+  desktop-trampoline-integration:
+    name: Integration Check (desktop-trampoline)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: vendor/desktop-trampoline
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # --ignore-scripts skips node-gyp rebuild (native N-API addon)
+      - name: Install dependencies
+        run: yarn install --ignore-scripts --frozen-lockfile
+
+      # @types/node is absent from this package's lockfile (provided by root
+      # workspace in normal CI); install ephemerally so tsc can compile
+      - name: Install missing type definitions
+        run: npm install --no-save @types/node@22
+
+      - name: Build
+        run: yarn build
+        continue-on-error: true
+
+      - name: Write step summary
+        if: always()
+        run: |
+          echo "## desktop-trampoline Integration" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Field | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| node | $(node --version) |" >> "$GITHUB_STEP_SUMMARY"
+
+  # ── Final summary across all jobs ─────────────────────────────────────────
+  summary:
+    name: Dependency Validation Summary
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs:
+      [
+        root-tests,
+        cli-tool-tests,
+        printenvz-audit,
+        desktop-trampoline-integration,
+      ]
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write final summary
+        run: |
+          echo "## Dependency Validation Results" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Job | Result |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| root-tests | ${{ needs.root-tests.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| cli-tool-tests | ${{ needs.cli-tool-tests.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| printenvz-audit | ${{ needs.printenvz-audit.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| desktop-trampoline-integration | ${{ needs.desktop-trampoline-integration.result }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Notes" >> "$GITHUB_STEP_SUMMARY"
+          echo "- uuid, axios, astro, vite, clerk: not present in this repo" >> "$GITHUB_STEP_SUMMARY"
+          echo "- API and Dashboard sub-packages: not present in this repo" >> "$GITHUB_STEP_SUMMARY"
+          echo "- npm audit: scoped to vendor/printenvz (the only npm workspace)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- printenvz-audit and desktop-trampoline-integration are non-blocking (continue-on-error)" >> "$GITHUB_STEP_SUMMARY"
