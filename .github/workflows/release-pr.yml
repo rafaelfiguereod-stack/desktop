@@ -5,7 +5,7 @@ on: create
 jobs:
   build:
     name: Create Release Pull Request
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     permissions:
       pull-requests: write
     steps:

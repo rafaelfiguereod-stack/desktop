@@ -3,7 +3,7 @@
 import * as Path from 'path'
 import { spawnSync, SpawnSyncOptions } from 'child_process'
 
-import glob from 'glob'
+import { globSync } from 'glob'
 import { forceUnwrap } from '../app/src/lib/fatal-error'
 
 const root = Path.dirname(__dirname)
@@ -28,17 +28,13 @@ const playwrightCliPath = Path.join(
 )
 
 function findYarnVersion(callback: (path: string) => void) {
-  glob('vendor/yarn-*.js', (error, files) => {
-    if (error != null) {
-      throw error
-    }
+  const files = globSync('vendor/yarn-*.js')
 
-    // this ensures the paths returned by glob are sorted alphabetically
-    files.sort()
+  // this ensures the paths returned by glob are sorted alphabetically
+  files.sort()
 
-    // use the latest version here if multiple are found
-    callback(forceUnwrap('Missing vendored yarn', files.at(-1)))
-  })
+  // use the latest version here if multiple are found
+  callback(forceUnwrap('Missing vendored yarn', files.at(-1)))
 }
 
 findYarnVersion(path => {
