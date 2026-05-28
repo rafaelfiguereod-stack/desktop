@@ -77,25 +77,35 @@
     "@github/multimap" "^1.0.0"
     "@github/stable-socket" "^1.1.0"
 
-"@github/copilot-darwin-arm64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-arm64/-/copilot-darwin-arm64-1.0.41-0.tgz#7a93cd0b97c16aedf8ee6efb30b41f2c600309f8"
-  integrity sha512-lrrH1oMbTOF1W/YxH6rvoEHOymxmXaMx4aDzm190hU0Yh6Cuu0BJGFvgG8nE9bqcv5O8W7eEBr26jDlGtnZiwg==
+"@github/copilot-darwin-arm64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-arm64/-/copilot-darwin-arm64-1.0.54.tgz#4ede24dd1f53757236254caa9f21232e77b04b83"
+  integrity sha512-ZRiKkxCvDccdGSNB/gmge4UkqMsWWZNIOr0pcim4/x2YUdHbh9cex9RZRjEMXijtUkBTzW5DP/cACuoAqTCyEg==
 
-"@github/copilot-darwin-x64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-x64/-/copilot-darwin-x64-1.0.41-0.tgz#aabb64521367903cbc36e37660187d4a45407a28"
-  integrity sha512-4418VtSSkEgn4BcwCFg+0UDhGCfQgGTx16r/PiWbuUOgIBzts3FfVzWMWTuXyxk7kl2Ib8k7KSd/7rNpjcrzBw==
+"@github/copilot-darwin-x64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-x64/-/copilot-darwin-x64-1.0.54.tgz#864f0447d6b21c7573d34bea1b9123d083354fce"
+  integrity sha512-DGqs8x5r4y+SebMco890lNsPrqe6L4v2hCmV1IQ1pvYPvD1o1NMVSZPAQhkdvUeR5bqusOg8+0ugIZOQGTFpFQ==
 
-"@github/copilot-linux-arm64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-linux-arm64/-/copilot-linux-arm64-1.0.41-0.tgz#af19553c3e358630a564167855b8afd930561d71"
-  integrity sha512-5xjgp3Ak5QJ68byNbsgBpdK1V6T5t8EGu0pUwEJMNMMXxqvL9f7gPcnCGdTtV2DS4Q3adkziV/gpBSSQ5HY8hg==
+"@github/copilot-linux-arm64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linux-arm64/-/copilot-linux-arm64-1.0.54.tgz#471a7c1420ea5218bf19d9a2d7428681475458e0"
+  integrity sha512-waVKu6RuG8YBvCoGrOgtsOxmnfLaUywvbqZXRgvMya1m4akRkMi5r9B2UDr3+egjChp+FIUJVbGIoXN6ZST0rQ==
 
-"@github/copilot-linux-x64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-linux-x64/-/copilot-linux-x64-1.0.41-0.tgz#d811210529d6b6661935d95dc2f1cb11ba29e4ca"
-  integrity sha512-oWPkj0bSjBjtAqonMEZD7EuSByBNXwtceMw8y7uGOfs6jQXfhDGzCCB6NGb+lcftVNtWDKFCUtx+x8Fbt4O37w==
+"@github/copilot-linux-x64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linux-x64/-/copilot-linux-x64-1.0.54.tgz#cd1a1df01e1a44ac18aa7529d13ee0dd2cafe481"
+  integrity sha512-u/ltZa+HDIuhMivkIwkkuylRdEMk5Lp0XjE9w/OityW+BPKjZ+VKAmJ1/1Xm/uUx1IUlZaE3TJnka52wVNOD0A==
+
+"@github/copilot-linuxmusl-arm64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linuxmusl-arm64/-/copilot-linuxmusl-arm64-1.0.54.tgz#d49a38c04ef17c33780cf712c3302134729c88eb"
+  integrity sha512-21LLjoQnD57Y1fvO56G1FGVbkt/ffZNDpHqVe2NW7C4r78Gn0hOTqwp+xWRUMpdmxrGZyKeFjX8jK6qox2uF5w==
+
+"@github/copilot-linuxmusl-x64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linuxmusl-x64/-/copilot-linuxmusl-x64-1.0.54.tgz#a18a758943767ca391df25bfaa7dab7637297bad"
+  integrity sha512-sbeATKa9vaIetsY1vhQJO0PN/5FgoK48wkGBWCy4BpO8ER/kGYczT22qv6n96gBYrVmC2IZuTFTM4GFpC3bbBw==
 
 "@github/copilot-sdk@^1.0.0-beta.1":
   version "1.0.0-beta.1"
@@ -106,27 +116,31 @@
     vscode-jsonrpc "^8.2.1"
     zod "^4.3.6"
 
-"@github/copilot-win32-arm64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-win32-arm64/-/copilot-win32-arm64-1.0.41-0.tgz#8f322ab44e04dab00a365a1f0a35cc109e008eea"
-  integrity sha512-MaPg4tFWTiRuyv+j0ymJbZp8UPK+RIXNMpekR7FRf8/Uz+NiJgTTxTDjFi4ytRJU5UNrUezkVAk5Xduq/CaIew==
+"@github/copilot-win32-arm64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-win32-arm64/-/copilot-win32-arm64-1.0.54.tgz#06f7506e5a766d95c438f200a9c7e8d03356ed44"
+  integrity sha512-muOX8qrJSi56BWQejkH0TgXpZYRO8Y9k1qIfMuRojZyLyATn1P4lIKb67ZqDCXJLkcPfVJ5eJYsSAeGwU3Qpww==
 
-"@github/copilot-win32-x64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-win32-x64/-/copilot-win32-x64-1.0.41-0.tgz#80a4e03e9b17bb206d7ddb6053384cb8478756d6"
-  integrity sha512-ykRuDWjJEgSywMFJl1yaefssaklCVSVhprx2NcSVh6tIGupvvzVAM6nL6Mj6nyKpG6FKGHanedBeL6SJc935cw==
+"@github/copilot-win32-x64@1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot-win32-x64/-/copilot-win32-x64-1.0.54.tgz#e25aaa609e30ea438ff586b9c0b50e129e5e563b"
+  integrity sha512-BheXmqrYFmfRXA0iveKkjKks/2wgK5glrEOARomzy3JCbvVMSPIE8YeK+3YysiOh2SUkWjahwJc09cxaBq4+qQ==
 
 "@github/copilot@^1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot/-/copilot-1.0.41-0.tgz#ba21a778547faa6731ff34c6c6b2cd1f49db1ff2"
-  integrity sha512-gLyCadBZdJeJtHJI3XdN8wAmLMEUdXfCa3EcVnbdbV1NHZDAJhr7h41l7a49pqRAmJyLUKlk1Lokk7U+OD3tgw==
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@github/copilot/-/copilot-1.0.54.tgz#f98d7f7d2abff1f45238f69651634234455380b5"
+  integrity sha512-gxiWEQFWxJ3J2Rh67CxKEfER/zayB1z2qaSBUz3RZ0u1iDNJdGPry/1vOQ72X/yHmpGNm+9egucN5VMzyedsIg==
+  dependencies:
+    detect-libc "^2.1.2"
   optionalDependencies:
-    "@github/copilot-darwin-arm64" "1.0.41-0"
-    "@github/copilot-darwin-x64" "1.0.41-0"
-    "@github/copilot-linux-arm64" "1.0.41-0"
-    "@github/copilot-linux-x64" "1.0.41-0"
-    "@github/copilot-win32-arm64" "1.0.41-0"
-    "@github/copilot-win32-x64" "1.0.41-0"
+    "@github/copilot-darwin-arm64" "1.0.54"
+    "@github/copilot-darwin-x64" "1.0.54"
+    "@github/copilot-linux-arm64" "1.0.54"
+    "@github/copilot-linux-x64" "1.0.54"
+    "@github/copilot-linuxmusl-arm64" "1.0.54"
+    "@github/copilot-linuxmusl-x64" "1.0.54"
+    "@github/copilot-win32-arm64" "1.0.54"
+    "@github/copilot-win32-x64" "1.0.54"
 
 "@github/multimap@^1.0.0":
   version "1.0.0"
@@ -573,6 +587,11 @@ detect-libc@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.0.tgz#c528bc09bc6d1aa30149228240917c225448f204"
   integrity sha512-S55LzUl8HUav8l9E2PBTlC5PAJrHK7tkM+XXFGD+fbsbkTzhCpG6K05LxJcUOEWzMa4v6ptcMZ9s3fOdJDu0Zw==
+
+detect-libc@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.1.2.tgz#689c5dcdc1900ef5583a4cb9f6d7b473742074ad"
+  integrity sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==
 
 dexie@^3.2.3:
   version "3.2.7"
