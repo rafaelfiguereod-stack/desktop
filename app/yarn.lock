@@ -77,25 +77,35 @@
     "@github/multimap" "^1.0.0"
     "@github/stable-socket" "^1.1.0"
 
-"@github/copilot-darwin-arm64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-arm64/-/copilot-darwin-arm64-1.0.41-0.tgz#7a93cd0b97c16aedf8ee6efb30b41f2c600309f8"
-  integrity sha512-lrrH1oMbTOF1W/YxH6rvoEHOymxmXaMx4aDzm190hU0Yh6Cuu0BJGFvgG8nE9bqcv5O8W7eEBr26jDlGtnZiwg==
+"@github/copilot-darwin-arm64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-arm64/-/copilot-darwin-arm64-1.0.63.tgz#26b063e17eb20f1089a999c940ba89e374442f7c"
+  integrity sha512-z6CMBxNDlKvT6bvOpqhu4M2bhb0daEbVwSe9SN9WfDUJbt7bpoL7OKKas428iyPSWHoL2WXwxSsy/FjIwSLV6w==
 
-"@github/copilot-darwin-x64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-x64/-/copilot-darwin-x64-1.0.41-0.tgz#aabb64521367903cbc36e37660187d4a45407a28"
-  integrity sha512-4418VtSSkEgn4BcwCFg+0UDhGCfQgGTx16r/PiWbuUOgIBzts3FfVzWMWTuXyxk7kl2Ib8k7KSd/7rNpjcrzBw==
+"@github/copilot-darwin-x64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-darwin-x64/-/copilot-darwin-x64-1.0.63.tgz#e05a14ac7177af0c59908f503c55c75720e4f163"
+  integrity sha512-YKd7cXZgAGxhudzrtWdWh2NS35p2G5bV22Gz3jhEyBTqmq45o4sD4OwO87+UpkvM+3nZpwsHaLd3a+ILYX6OXg==
 
-"@github/copilot-linux-arm64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-linux-arm64/-/copilot-linux-arm64-1.0.41-0.tgz#af19553c3e358630a564167855b8afd930561d71"
-  integrity sha512-5xjgp3Ak5QJ68byNbsgBpdK1V6T5t8EGu0pUwEJMNMMXxqvL9f7gPcnCGdTtV2DS4Q3adkziV/gpBSSQ5HY8hg==
+"@github/copilot-linux-arm64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linux-arm64/-/copilot-linux-arm64-1.0.63.tgz#bb09750614c9b1b20038186df310b8c63b20f19d"
+  integrity sha512-A3DOeEfmsJH9j1N+QLc7WXmESBskbezmhDyhyAJcHkw0ngRbKctuWQf/evUHFMh/kgwy1Lr/+9jXJm3NZqr0MA==
 
-"@github/copilot-linux-x64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-linux-x64/-/copilot-linux-x64-1.0.41-0.tgz#d811210529d6b6661935d95dc2f1cb11ba29e4ca"
-  integrity sha512-oWPkj0bSjBjtAqonMEZD7EuSByBNXwtceMw8y7uGOfs6jQXfhDGzCCB6NGb+lcftVNtWDKFCUtx+x8Fbt4O37w==
+"@github/copilot-linux-x64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linux-x64/-/copilot-linux-x64-1.0.63.tgz#99f11edd9ebed00ed2f968cb748cb88ebdd86ad9"
+  integrity sha512-OMKfZJRoDaJOV7vuWX/nFPNdLa9/H+nhajdE83v4YT9mKLXr86aWrkXE3pPoDYsKWvgQFHg4APA6oZPao0Fyow==
+
+"@github/copilot-linuxmusl-arm64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linuxmusl-arm64/-/copilot-linuxmusl-arm64-1.0.63.tgz#33055e22be02d350be03831900813cbcd95ea29b"
+  integrity sha512-jcIo6B3uHgcOluNfUHp+6atShKKrXYBPLaRyF6aDT699lwI83gW9KTDuEvDs5FDg8qWsWFfOl+al2dkWDYD3CQ==
+
+"@github/copilot-linuxmusl-x64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-linuxmusl-x64/-/copilot-linuxmusl-x64-1.0.63.tgz#c9ac191c0a4bbfe46dedddf7532743a774561600"
+  integrity sha512-BEdBbEF3fG7VqXzuaAY4JtmbdGSkpJFeb2ZQYaMpq7OP3aS7ssGe1cCX8ehZNegcMM/eb4GC6PXNXsvl3X/PAQ==
 
 "@github/copilot-sdk@^1.0.0-beta.1":
   version "1.0.0-beta.1"
@@ -106,27 +116,32 @@
     vscode-jsonrpc "^8.2.1"
     zod "^4.3.6"
 
-"@github/copilot-win32-arm64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-win32-arm64/-/copilot-win32-arm64-1.0.41-0.tgz#8f322ab44e04dab00a365a1f0a35cc109e008eea"
-  integrity sha512-MaPg4tFWTiRuyv+j0ymJbZp8UPK+RIXNMpekR7FRf8/Uz+NiJgTTxTDjFi4ytRJU5UNrUezkVAk5Xduq/CaIew==
+"@github/copilot-win32-arm64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-win32-arm64/-/copilot-win32-arm64-1.0.63.tgz#b95b2fd892af1b89f6463b351e7fd46de27af5ee"
+  integrity sha512-7FqUwOmtoeBoOn4zkKQqRL+WGFwektVRSr5Po2FvPAbKxGXGyFXApZTmRLqVcHhMKDRzMb8KLST1LU1TMTY/wg==
 
-"@github/copilot-win32-x64@1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot-win32-x64/-/copilot-win32-x64-1.0.41-0.tgz#80a4e03e9b17bb206d7ddb6053384cb8478756d6"
-  integrity sha512-ykRuDWjJEgSywMFJl1yaefssaklCVSVhprx2NcSVh6tIGupvvzVAM6nL6Mj6nyKpG6FKGHanedBeL6SJc935cw==
+"@github/copilot-win32-x64@1.0.63":
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot-win32-x64/-/copilot-win32-x64-1.0.63.tgz#4d7f9f8090c0177e4b144934153ca7faee3a9a57"
+  integrity sha512-RC/6y9KHdw/YRCrCEksF2RzbeblfBUNE7bkYZxygaQGYThuv1GeZL2YD2jVqxC2LxKzsUmWGvwEMxerfR6pmeQ==
 
 "@github/copilot@^1.0.41-0":
-  version "1.0.41-0"
-  resolved "https://registry.yarnpkg.com/@github/copilot/-/copilot-1.0.41-0.tgz#ba21a778547faa6731ff34c6c6b2cd1f49db1ff2"
-  integrity sha512-gLyCadBZdJeJtHJI3XdN8wAmLMEUdXfCa3EcVnbdbV1NHZDAJhr7h41l7a49pqRAmJyLUKlk1Lokk7U+OD3tgw==
+  version "1.0.63"
+  resolved "https://registry.yarnpkg.com/@github/copilot/-/copilot-1.0.63.tgz#0b4b67942162f779de346dff22e4a086260eb270"
+  integrity sha512-e8DRYiWJQc4kepVXsXjC8vpDU2FXS/TfR+Z6p/KAojfcwIUZzKMAfCV5D1lD25hV4CryVH1Z9t7mHqChickj0Q==
+  dependencies:
+    detect-libc "^2.1.2"
+    os-theme "^0.0.8"
   optionalDependencies:
-    "@github/copilot-darwin-arm64" "1.0.41-0"
-    "@github/copilot-darwin-x64" "1.0.41-0"
-    "@github/copilot-linux-arm64" "1.0.41-0"
-    "@github/copilot-linux-x64" "1.0.41-0"
-    "@github/copilot-win32-arm64" "1.0.41-0"
-    "@github/copilot-win32-x64" "1.0.41-0"
+    "@github/copilot-darwin-arm64" "1.0.63"
+    "@github/copilot-darwin-x64" "1.0.63"
+    "@github/copilot-linux-arm64" "1.0.63"
+    "@github/copilot-linux-x64" "1.0.63"
+    "@github/copilot-linuxmusl-arm64" "1.0.63"
+    "@github/copilot-linuxmusl-x64" "1.0.63"
+    "@github/copilot-win32-arm64" "1.0.63"
+    "@github/copilot-win32-x64" "1.0.63"
 
 "@github/multimap@^1.0.0":
   version "1.0.0"
@@ -137,6 +152,21 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@github/stable-socket/-/stable-socket-1.1.0.tgz#b8598c02df1a935fb0c970252f0b0062f4bdaa29"
   integrity sha512-kzLHnrWGvmXka7AIUnsyF+SO5dP4dxEXX2sMixXW5ngRf3i4RhvXzFNgXVy4qBKsIsg6V3fNb3NOto0z6o4XAw==
+
+"@os-theme/darwin-arm64@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@os-theme/darwin-arm64/-/darwin-arm64-0.0.8.tgz#b06dcb0ee6234a6dbe4c422f0337c6fad811ebd7"
+  integrity sha512-gMsOs+8Ju396a5yyMWigkbA0dMTxD78U3HzG3mlpiAyn6hfd5dbyI4VGP+sfTB82KGgWLzIhWWTFX5UYY6iX0A==
+
+"@os-theme/linux-x64@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@os-theme/linux-x64/-/linux-x64-0.0.8.tgz#dc231074d2695e8fca62d4e3116b0018f4a984c1"
+  integrity sha512-zvjmBUiSQPjM1RbhpsfCDYMJxW4eLlGmkFPnpteC/03X2lz6CjiX2hfbN2EWLxXjNnIje3Jqaen8IsqEnWrRBg==
+
+"@os-theme/win32-x64@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@os-theme/win32-x64/-/win32-x64-0.0.8.tgz#c8c3e89b2dc6563352dbd21fd14c25f16b73479a"
+  integrity sha512-N3yxKNbVl2IBa/ncDuq55QhwqwUjnYLJxDKMEmYeJbLIV950qZNojPw3scXA6PbfxPZfIiRa8iz1pzNg9XxP8w==
 
 "@testing-library/dom@8.20.1", "@testing-library/dom@^8.0.0":
   version "8.20.1"
@@ -574,6 +604,11 @@ detect-libc@^2.0.0:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.0.tgz#c528bc09bc6d1aa30149228240917c225448f204"
   integrity sha512-S55LzUl8HUav8l9E2PBTlC5PAJrHK7tkM+XXFGD+fbsbkTzhCpG6K05LxJcUOEWzMa4v6ptcMZ9s3fOdJDu0Zw==
 
+detect-libc@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.1.2.tgz#689c5dcdc1900ef5583a4cb9f6d7b473742074ad"
+  integrity sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==
+
 dexie@^3.2.3:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/dexie/-/dexie-3.2.7.tgz#1346541c9c81e3bc6055a042a928837890595e3a"
@@ -607,10 +642,10 @@ dom-helpers@^5.1.3:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
 
-dompurify@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.4.0.tgz#b1fc33ebdadb373241621e0a30e4ad81573dfd0b"
-  integrity sha512-nolgK9JcaUXMSmW+j1yaSvaEaoXYHwWyGJlkoCTghc97KgGDDSnpoU/PlEnw63Ah+TGKFOyY+X5LnxaWbCSfXg==
+dompurify@^3.4.11:
+  version "3.4.11"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.4.11.tgz#29c8ba496475f279ef4015784068452fb14a0680"
+  integrity sha512-zhlUV12GsaRzMsf9q5M254YhA4+VuF0fG+QFqu6aYpoGlKtz+w8//jBcGVYBgQkR5GHjUomejY84AV+/uPbWdw==
   optionalDependencies:
     "@types/trusted-types" "^2.0.7"
 
@@ -1367,6 +1402,15 @@ one-time@^1.0.0:
   integrity sha512-5DXOiRKwuSEcQ/l0kGCF6Q3jcADFv5tSmRaJck/OqkVFcOzutB134KRSfF0xDrL39MNnqxbHBbUUcjZIhTgb2g==
   dependencies:
     fn.name "1.x.x"
+
+os-theme@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/os-theme/-/os-theme-0.0.8.tgz#e99234ba465ff2a05657cf7294f62ccb084eeebf"
+  integrity sha512-u1q3bLSv5uMHNIiPItkfDrHXu6ZFs2juwqxWREFM/uVBa+7Kkhy2v49LmJev2JcinGwqiEccElB/XsH9gwasuA==
+  optionalDependencies:
+    "@os-theme/darwin-arm64" "0.0.8"
+    "@os-theme/linux-x64" "0.0.8"
+    "@os-theme/win32-x64" "0.0.8"
 
 p-defer@^1.0.0:
   version "1.0.0"
